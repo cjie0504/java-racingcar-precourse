@@ -1,5 +1,7 @@
 package racingGame.domain;
 
+import racingGame.util.ValidateUtil;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -20,7 +22,12 @@ public class UserInput {
 
     private void inputRoundCnt(Scanner scanner) {
         System.out.println(INPUT_ROUND_MSG);
+        ValidateUtil.chkRacingRound(scanner.nextLine());
         this.roundCnt = scanner.nextInt();
+    }
+
+    public static void inputRoundCnt(String roundCnt) {
+        ValidateUtil.chkRacingRound(roundCnt);
     }
 
     private void inputCarName(Scanner scanner) {
@@ -34,6 +41,9 @@ public class UserInput {
 
     public List<String> carNameList(){
         List<String> carNameList = Arrays.asList(carNames.split(INPUT_CAR_SPLIT_STR));
+        for(String carName : carNameList){
+            ValidateUtil.chkCarName(carName.trim());
+        }
         return carNameList;
     }
 }
