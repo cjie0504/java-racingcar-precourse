@@ -20,10 +20,11 @@ public class UserInput {
         inputRoundCnt(scanner);
     }
 
-    public void inputRoundCnt(Scanner scanner) {
+    public void inputRoundCnt(Scanner scanner){
         System.out.println(INPUT_ROUND_MSG);
-        ValidateUtil.chkRacingRound(scanner.nextLine());
-        this.roundCnt = scanner.nextInt();
+        String roundCnt = scanner.nextLine();
+        ValidateUtil.chkRacingRound(roundCnt);
+        this.roundCnt = Integer.parseInt(roundCnt);
     }
 
 
@@ -31,6 +32,7 @@ public class UserInput {
         System.out.println(INPUT_CAR_NAMES_MSG);
         this.carNames = scanner.nextLine();
         List<String> carNameList = Arrays.asList(this.carNames.split(INPUT_CAR_SPLIT_STR));
+        ValidateUtil.chkCarsSize(carNameList.size());
         for (String carName : carNameList) {
             ValidateUtil.chkCarName(carName.trim());
         }
