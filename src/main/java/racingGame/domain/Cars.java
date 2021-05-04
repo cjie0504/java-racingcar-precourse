@@ -1,11 +1,16 @@
 package racingGame.domain;
 
+import racingGame.util.ValidateUtil;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Cars {
+
+    private static final String CARS_NAME_DELIMITER = " : ";
+    private static final String CARS_MOVE_MARK = "-";
 
     private List<Car> cars;
 
@@ -16,6 +21,7 @@ public class Cars {
     public static Cars setNewCars(List<String> carNames){
         List<Car> cars = new ArrayList<>();
         for(String carName : carNames){
+            ValidateUtil.chkCarNameEmpty(carName);
             cars.add(new Car(carName));
         }
         return new Cars(cars);
@@ -43,9 +49,9 @@ public class Cars {
     private void drawRacing(String carName, int position) {
         StringBuffer sb = new StringBuffer();
         sb.append(carName);
-        sb.append(": ");
+        sb.append(CARS_NAME_DELIMITER);
         for(int i=0;i<position;i++){
-            sb.append("-");
+            sb.append(CARS_MOVE_MARK);
         }
         System.out.println(sb.toString());
     }
