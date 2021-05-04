@@ -11,6 +11,7 @@ public class Cars {
 
     private static final String CARS_NAME_DELIMITER = " : ";
     private static final String CARS_MOVE_MARK = "-";
+    private static final int RANDOM_BOUND = 10;
 
     private List<Car> cars;
 
@@ -40,7 +41,7 @@ public class Cars {
 
     public void moveCar(){
         for(Car car : cars){
-            int randomInt = ThreadLocalRandom.current().nextInt(10);
+            int randomInt = ThreadLocalRandom.current().nextInt(RANDOM_BOUND);
             if(randomInt>=4) car.movePosition();
             drawRacing(car.getCarName(), car.getPosition());
         }

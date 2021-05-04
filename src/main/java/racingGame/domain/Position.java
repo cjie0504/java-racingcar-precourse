@@ -1,6 +1,7 @@
 package racingGame.domain;
 
 public class Position {
+    private static final int CAR_MOVE_RANGE = 1;
     int position;
 
     public Position(int position) {
@@ -12,6 +13,6 @@ public class Position {
     }
 
     public Position movePosition(){
-        return new Position(this.position+1);
+        return new Position(this.position+CAR_MOVE_RANGE);
     }
 }
