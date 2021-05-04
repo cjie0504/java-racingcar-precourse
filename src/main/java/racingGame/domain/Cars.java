@@ -1,8 +1,7 @@
 package racingGame.domain;
 
-import racingGame.util.ValidateUtil;
-
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -17,7 +16,6 @@ public class Cars {
     public static Cars setNewCars(List<String> carNames){
         List<Car> cars = new ArrayList<>();
         for(String carName : carNames){
-            ValidateUtil.chkCarNameEmpty(carName);
             cars.add(new Car(carName));
         }
         return new Cars(cars);
@@ -38,7 +36,26 @@ public class Cars {
         for(Car car : cars){
             int randomInt = ThreadLocalRandom.current().nextInt(10);
             if(randomInt>=4) car.movePosition();
+            drawRacing(car.getCarName(), car.getPosition());
         }
     }
 
+    private void drawRacing(String carName, int position) {
+        StringBuffer sb = new StringBuffer();
+        sb.append(carName);
+        sb.append(": ");
+        for(int i=0;i<position;i++){
+            sb.append("-");
+        }
+        System.out.println(sb.toString());
+    }
+
+
+    public int getMaxPosition(){
+        List<Integer> positionList = new ArrayList();
+        for(Car car : cars){
+            positionList.add(car.getPosition());
+        }
+        return Collections.max(positionList);
+    }
 }
