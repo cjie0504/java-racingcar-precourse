@@ -20,7 +20,7 @@ public class UserInput {
         inputRoundCnt(scanner);
     }
 
-    public void inputRoundCnt(Scanner scanner){
+    public void inputRoundCnt(Scanner scanner) {
         System.out.println(INPUT_ROUND_MSG);
         String roundCnt = scanner.nextLine();
         ValidateUtil.chkRacingRound(roundCnt);
