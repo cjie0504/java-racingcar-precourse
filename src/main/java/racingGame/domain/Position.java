@@ -8,11 +8,11 @@ public class Position {
         this.position = position;
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position;
     }
 
-    public Position movePosition(){
-        return new Position(this.position+CAR_MOVE_RANGE);
+    public Position movePosition() {
+        return new Position(this.position + CAR_MOVE_RANGE);
     }
 }

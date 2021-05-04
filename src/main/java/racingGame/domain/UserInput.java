@@ -14,7 +14,7 @@ public class UserInput {
     private String carNames;
     private int roundCnt;
 
-    public void userInputInfo(){
+    public void userInputInfo() {
         Scanner scanner = new Scanner(System.in);
         inputCarName(scanner);
         inputRoundCnt(scanner);
@@ -35,13 +35,13 @@ public class UserInput {
         this.carNames = scanner.nextLine();
     }
 
-    public int getUserInput_roundCnt(){
+    public int getUserInput_roundCnt() {
         return roundCnt;
     }
 
-    public List<String> carNameList(){
+    public List<String> carNameList() {
         List<String> carNameList = Arrays.asList(carNames.split(INPUT_CAR_SPLIT_STR));
-        for(String carName : carNameList){
+        for (String carName : carNameList) {
             ValidateUtil.chkCarName(carName.trim());
         }
         return carNameList;

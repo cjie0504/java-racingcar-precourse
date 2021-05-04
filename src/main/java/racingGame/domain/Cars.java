@@ -19,9 +19,9 @@ public class Cars {
         this.cars = cars;
     }
 
-    public static Cars setNewCars(List<String> carNames){
+    public static Cars setNewCars(List<String> carNames) {
         List<Car> cars = new ArrayList<>();
-        for(String carName : carNames){
+        for (String carName : carNames) {
             ValidateUtil.chkCarNameEmpty(carName);
             cars.add(new Car(carName));
         }
@@ -32,17 +32,17 @@ public class Cars {
         return cars;
     }
 
-    public void moveCars(int roundCnt){
-        for(int i = 0; i<roundCnt; i++){
+    public void moveCars(int roundCnt) {
+        for (int i = 0; i < roundCnt; i++) {
             moveCar();
             System.out.println();
         }
     }
 
-    public void moveCar(){
-        for(Car car : cars){
+    public void moveCar() {
+        for (Car car : cars) {
             int randomInt = ThreadLocalRandom.current().nextInt(RANDOM_BOUND);
-            if(randomInt>=4) car.movePosition();
+            if (randomInt >= 4) car.movePosition();
             drawRacing(car.getCarName(), car.getPosition());
         }
     }
@@ -51,16 +51,16 @@ public class Cars {
         StringBuffer sb = new StringBuffer();
         sb.append(carName);
         sb.append(CARS_NAME_DELIMITER);
-        for(int i=0;i<position;i++){
+        for (int i = 0; i < position; i++) {
             sb.append(CARS_MOVE_MARK);
         }
         System.out.println(sb.toString());
     }
 
 
-    public int getMaxPosition(){
+    public int getMaxPosition() {
         List<Integer> positionList = new ArrayList();
-        for(Car car : cars){
+        for (Car car : cars) {
             positionList.add(car.getPosition());
         }
         return Collections.max(positionList);

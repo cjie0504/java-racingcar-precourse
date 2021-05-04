@@ -16,7 +16,7 @@ public class Racing {
     public static List<String> winCars = new ArrayList<>();
 
 
-    public Racing(List<String> carNames , int roundCnt){
+    public Racing(List<String> carNames, int roundCnt) {
         this.roundCnt = roundCnt;
         this.cars = Cars.setNewCars(carNames);
         this.cars.moveCars(this.roundCnt);
@@ -26,8 +26,8 @@ public class Racing {
 
 
     public static List<String> findWinCar(List<Car> cars, int maxPosition) {
-        for(Car car : cars) {
-            setRacingResult(car.getCarName(), Integer.compare(car.getPosition(),maxPosition));
+        for (Car car : cars) {
+            setRacingResult(car.getCarName(), Integer.compare(car.getPosition(), maxPosition));
         }
         return winCars;
     }
@@ -38,11 +38,11 @@ public class Racing {
         }
     }
 
-    public void printResultMsg(){
+    public void printResultMsg() {
         StringJoiner sj = new StringJoiner(WINCAR_MSG_DELIMITER);
-        for(String carName : winCars){
+        for (String carName : winCars) {
             sj.add(carName);
         }
-        System.out.println(sj.toString()+WINCAR_RESULT_MSG);
+        System.out.println(sj.toString() + WINCAR_RESULT_MSG);
     }
 }

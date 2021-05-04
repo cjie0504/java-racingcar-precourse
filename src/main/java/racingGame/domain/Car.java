@@ -20,15 +20,15 @@ public class Car {
         this.position = new Position(position);
     }
 
-    public int getPosition(){
+    public int getPosition() {
         return this.position.getPosition();
     }
 
-    public String getCarName(){
+    public String getCarName() {
         return this.carName.getCarName();
     }
 
-    public int movePosition(){
+    public int movePosition() {
         this.position = position.movePosition();
         return getPosition();
     }
