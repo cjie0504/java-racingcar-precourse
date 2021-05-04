@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Cars {
-
+    private StringBuffer sb = new StringBuffer();
     private static final String CARS_NAME_DELIMITER = " : ";
     private static final String CARS_MOVE_MARK = "-";
     private static final int RANDOM_BOUND = 10;
@@ -52,7 +52,7 @@ public class Cars {
     }
 
     private void drawRacing(String carName, int position) {
-        StringBuffer sb = new StringBuffer();
+        sb.setLength(0);
         sb.append(carName);
         sb.append(CARS_NAME_DELIMITER);
         for (int i = 0; i < position; i++) {
