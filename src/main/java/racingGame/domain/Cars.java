@@ -42,9 +42,13 @@ public class Cars {
     public void moveCar() {
         for (Car car : cars) {
             int randomInt = ThreadLocalRandom.current().nextInt(RANDOM_BOUND);
-            if (randomInt >= 4) car.movePosition();
+            carMovePosition(randomInt, car);
             drawRacing(car.getCarName(), car.getPosition());
         }
+    }
+
+    public void carMovePosition(int randomInt, Car car) {
+        if (randomInt >= 4) car.movePosition();
     }
 
     private void drawRacing(String carName, int position) {
