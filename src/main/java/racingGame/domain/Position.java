@@ -11,4 +11,7 @@ public class Position {
         return this.position;
     }
 
+    public Position movePosition(){
+        return new Position(this.position+1);
+    }
 }

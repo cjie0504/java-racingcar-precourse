@@ -6,7 +6,7 @@ public class Car {
 
     private static final int CAR_START_POSITION = 0;
     public final CarName carName;
-    public final Position position;
+    public Position position;
 
     public Car(String carName) {
         ValidateUtil.chkCarName(carName.trim());
@@ -28,4 +28,8 @@ public class Car {
         return this.carName.getCarName();
     }
 
+    public int movePosition(){
+        this.position = position.movePosition();
+        return getPosition();
+    }
 }

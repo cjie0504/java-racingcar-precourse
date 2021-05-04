@@ -4,8 +4,10 @@ import racingGame.util.ValidateUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Cars {
+
     private List<Car> cars;
 
     public Cars(List<Car> cars) {
@@ -24,4 +26,19 @@ public class Cars {
     public List<Car> getCars() {
         return cars;
     }
+
+    public void moveCars(int roundCnt){
+        for(int i = 0; i<roundCnt; i++){
+            moveCar();
+            System.out.println();
+        }
+    }
+
+    public void moveCar(){
+        for(Car car : cars){
+            int randomInt = ThreadLocalRandom.current().nextInt(10);
+            if(randomInt>=4) car.movePosition();
+        }
+    }
+
 }
