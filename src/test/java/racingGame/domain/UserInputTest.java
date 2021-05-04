@@ -12,8 +12,8 @@ public class UserInputTest {
 
 
     @Test
-    public void 레이싱_횟수_빈값_검증() {
-        String input = " ";
+    public void 레이싱_횟수_숫자_검증() {
+        String input = "ㄱ";
         System.setIn(new ByteArrayInputStream(input.getBytes()));
         Scanner scanner = new Scanner(System.in);
         assertThatThrownBy(
@@ -53,5 +53,17 @@ public class UserInputTest {
                 () -> new UserInput().inputCarName(scanner)
         ).isInstanceOf(InputException.class)
                 .hasMessageContaining("자동차 이름은 5자 아래로 입력하세요.");
+    }
+
+
+    @Test
+    public void 레이싱_자동차_이름_2개이상() {
+        String input = "TEST";
+        System.setIn(new ByteArrayInputStream(input.getBytes()));
+        Scanner scanner = new Scanner(System.in);
+        assertThatThrownBy(
+                () -> new UserInput().inputCarName(scanner)
+        ).isInstanceOf(InputException.class)
+                .hasMessageContaining("자동차는 2개이상 입력해주세요.");
     }
 }
